@@ -17,24 +17,36 @@
 </head>
 <body>
   <header>
-    Units
-
-    Switch to Imperial/Metric
-
-    Temperature
-
-    Celsius (°C)
-    Fahrenheit (°F)
-
-    Wind Speed
-
-    km/h
-    mph
-
-    Precipitation
-
-    Millimeters (mm)
-    Inches (in)
+    <div class="units-dropdown">
+      <button class="units-dropdown-btn">Units</button>
+      <img src="./assets/images/icon-units.svg" alt="units-icon">
+      <img src="./assets/images/icon-dropdown.svg" alt="dropdown-icon">
+      <div class="dropdown-options">
+          <div class="imperial-units-option">Switch to Imperial</div>
+          <div class="metric-units-option">Switch to Metric</div>
+          <div class="optgroup">
+            <div class="optgroup-label">Temperature</div>
+            <ul>
+              <li data-value="celsius">Celsius (°C)</li>
+              <li data-value="fahrenheit">Fahrenheit (°F)</li>
+            </ul>
+          </div>
+          <div class="optgroup">
+            <div class="optgroup-label">Wind Speed</div>
+            <ul>
+              <li data-value="kmh">km/h</li>
+              <li data-value="mph">mph</li>
+            </ul>
+          </div>
+          <div class="optgroup">
+            <div class="optgroup-label">Precipitation</div>
+            <ul>
+              <li data-value="mm">Millimeters (mm)</li>
+              <li data-value="in">Inches (in)</li>
+            </ul>
+          </div>
+      </div>
+    </div>
   </header>
   <main>
     How's the sky looking today?
