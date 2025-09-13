@@ -1,0 +1,33 @@
+header {
+    min-width: 100%;
+    display: flex;
+    justify-content: space-between;
+}
+
+.site-logo-container {
+    max-width: 15vw;
+}
+
+.units-dropdown {
+    min-width: 12rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.units-dropdown-btn {
+    align-self: flex-end;
+    font-size: 1rem;
+    padding: 0.6rem 1.1rem;
+    background-color: #25253f;
+    color: #fff;
+    border-width: 0;
+    border-radius: 8px;
+    display: flex;
+    gap: 0.6rem;
+    cursor: pointer;
+}
+
+.units-dropdown-btn img {
+    max-width: 1rem;
+}
