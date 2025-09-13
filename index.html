@@ -17,6 +17,10 @@
 </head>
 <body>
   <header>
+    <div class="site-logo-container">
+      <img src="./assets/images/logo.svg" alt="site-logo" class="site-logo">
+    </div>
+
     <div class="units-dropdown">
       <button class="units-dropdown-btn">Units</button>
       <img src="./assets/images/icon-units.svg" alt="units-icon">
@@ -49,10 +53,13 @@
     </div>
   </header>
   <main>
-    How's the sky looking today?
+    <h1>How's the sky looking today?</h1>
 
-    Search for a city, e.g., New York
-    Search
+    <form action="/index.html" method="get">
+      <input type="text" name="city" placeholder="Search for a city, e.g., New York">
+      <img src="./assets/images/icon-search.svg" alt="search-icon">
+      <button type="submit">Search</button>
+    </form>
 
     Feels like
     <!-- Insert temperature here -->
