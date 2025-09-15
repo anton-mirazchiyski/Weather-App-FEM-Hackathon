@@ -63,10 +63,12 @@
   <main>
     <h1>How's the sky looking today?</h1>
 
-    <form action="/index.html" method="get">
-      <input type="text" name="city" placeholder="Search for a city, e.g., New York">
-      <img src="./assets/images/icon-search.svg" alt="search-icon">
-      <button type="submit">Search</button>
+    <form action="/index.html" method="get" class="search-form">
+      <div class="input-container">
+        <input type="text" name="city" placeholder="Search for a city, e.g., New York">
+        <img src="./assets/images/icon-search.svg" alt="search-icon" class="search-icon">
+      </div>
+      <button type="submit" class="search-button">Search</button>
     </form>
 
     <section class="city-weather-info">
