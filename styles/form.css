@@ -1,11 +1,12 @@
 .search-form {
     display: flex;
-    gap: 1.2rem;
+    gap: 1rem;
+    align-items: flex-start;
 }
 
 .search-form input {
     min-width: 29rem;
-    padding: 0.5rem 3.2rem;
+    padding: 0.6rem 3.2rem;
     border-radius: 10px;
     background-color: #25253f;
     border: 2px solid #30304c;
@@ -19,6 +20,16 @@
     top: -2rem;
     right: -1.2rem;
     max-width: 1.2rem;
+}
+
+.search-button {
+    padding: 0.6rem 1.1rem;
+    border-radius: 10px;
+    background-color: #4657d9;
+    color: #ffff;
+    font-weight: 500;
+    border: 2px solid #30304c;
+    cursor: pointer;
 }
 
 .search-form input::placeholder {
