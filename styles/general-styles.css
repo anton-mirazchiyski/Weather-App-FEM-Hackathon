@@ -9,6 +9,10 @@ body {
     color: #fff;
 }
 
+ul {
+    list-style-type: none;
+}
+
 footer {
     margin-top: auto;
 }

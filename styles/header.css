@@ -12,7 +12,7 @@ header {
     min-width: 12rem;
     display: flex;
     flex-direction: column;
-    gap: 0.5rem;
+    position: relative;
 }
 
 .units-dropdown-btn {
@@ -30,4 +30,36 @@ header {
 
 .units-dropdown-btn img {
     max-width: 1rem;
+}
+
+.dropdown-options {
+    min-width: 100%;
+    border: 2px solid #30304c;
+    padding: 0.4rem;
+    border-radius: 8px;
+    background-color: #25253f;
+    font-size: 1rem;
+    font-weight: 500;
+    cursor: pointer;
+    position: absolute;
+    top: 3.4rem;
+}
+
+.dropdown-options .optgroup-label,
+.dropdown-options ul li,
+.imperial-units-option {
+    padding: 0.5rem 0.3rem;
+    border-radius: 8px;
+}
+
+.dropdown-options .optgroup-label {
+    color: #88869d;
+    font-size: 0.9rem;
+}
+
+.dropdown-options hr {
+    color: #3a3950;
+    border: none;
+    border-top: 1px solid #3a3950;
+    margin-top: 0.1rem;
 }
