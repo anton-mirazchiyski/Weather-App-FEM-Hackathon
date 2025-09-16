@@ -1,0 +1,27 @@
+.general-weather-info {
+    display: flex;
+    justify-content: space-between;
+}
+
+.general-weather-info > div {
+    min-width: 11.5rem;
+    border: 2px solid #30304c;
+    border-radius: 9px;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    padding: 0.9rem;
+    background-color: #25253f;
+}
+
+.general-weather-info-text {
+    font-size: 1rem;
+    font-weight: 500;
+    color: #bebdce;
+}
+
+.general-weather-info-data {
+    font-size: 1.6rem;
+    font-weight: 300;
+    color: #ededfd;
+}
