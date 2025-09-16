@@ -6,12 +6,12 @@
 }
 
 .first-column {
-    min-width: 70%;
+    min-width: 50rem;
     display: flex;
     flex-direction: column;
     gap: 1.5rem;
 }
 
 .second-column {
-    min-width: 30%;
+    min-width: 30rem;
 }

@@ -1,0 +1,41 @@
+.city-name-container {
+    min-height: 18rem;
+    max-width: 50rem;
+    background-image: url("/assets/images/bg-today-large.svg");
+    background-repeat: no-repeat;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 1.4rem;
+}
+
+.city-info {
+    display: flex;
+    flex-direction: column;
+    gap: 0.7rem;
+}
+
+.city-name {
+    font-size: 1.4rem;
+    font-weight: 700;
+}
+
+.city-date {
+    font-size: 1rem;
+}
+
+.city-temperature {
+    display: flex;
+    gap: 3rem;
+}
+
+.current-temperature-icon {
+    max-width: 7vw;
+}
+
+.current-temperature-high {
+    align-self: center;
+    font-size: 4.3rem;
+    font-weight: 600;
+    font-style: italic;
+}
