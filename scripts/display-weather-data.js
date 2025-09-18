@@ -9,6 +9,10 @@ export async function displayWeatherInfoOfCity() {
 
     const [cityName, cityCountry, ...coordinates] = cityInfo;
     const [cityLatitude, cityLongitude] = coordinates;
+
+    const currentWeatherData = await getCurrentWeatherData(cityLatitude, cityLongitude);
+    const [temperature, apparentTemperature, humidity, windSpeed, precipitation] = currentWeatherData;
+    // console.log(temperature, apparentTemperature, humidity, windSpeed, precipitation);
 }
 
 
@@ -28,6 +32,28 @@ async function getCityMainInfo() {
             firstOccurrence.latitude,
             firstOccurrence.longitude,
         ];
+    } catch(error) {
+        return null;
+    }
+}
+
+async function getCurrentWeatherData(latitude, longitude) {
+    const currentWeatherUrl = `https://api.open-meteo.com/v1/forecast?latitude=${latitude}&longitude=${longitude}&current=temperature_2m,relative_humidity_2m,apparent_temperature,precipitation,wind_speed_10m`;
+
+    try {
+        const response = await fetch(currentWeatherUrl);
+        const data = await response.json();
+
+        const weatherInfo = data.current;
+        
+        return [
+            weatherInfo.temperature_2m,
+            weatherInfo.apparent_temperature,
+            weatherInfo.relative_humidity_2m,
+            weatherInfo.wind_speed_10m,
+            weatherInfo.precipitation,
+        ];
+        
     } catch(error) {
         return null;
     }
