@@ -12,7 +12,6 @@ export async function displayWeatherInfoOfCity() {
 
     const currentWeatherData = await getCurrentWeatherData(cityLatitude, cityLongitude);
     const [temperature, apparentTemperature, humidity, windSpeed, precipitation] = currentWeatherData;
-    // console.log(temperature, apparentTemperature, humidity, windSpeed, precipitation);
     displayLocationNames(cityName, cityCountry);
     displayCurrentWeatherData(temperature, apparentTemperature, humidity, windSpeed, precipitation);
 }
@@ -78,5 +77,8 @@ function displayCurrentWeatherData(temperature, apparentTemperature, humidity, w
 
 function displayLocationNames(cityName, countryName) {
     const nameElement = document.querySelector('.city-info > .city-name');
-    nameElement.textContent = `${cityName}, ${countryName}`;
+
+    cityName !== countryName
+                        ? nameElement.textContent = `${cityName}, ${countryName}`
+                        : nameElement.textContent = `${countryName}`;
 }
