@@ -1,4 +1,5 @@
-import { displayWeatherInfoOfCity } from './display-weather-data.js';
+import * as weatherGet from './get-weather-data.js';
+import * as weatherDisplay from './display-weather-data.js';
 
 const searchFormElement = document.querySelector('form.search-form');
 
@@ -7,3 +8,21 @@ searchFormElement.addEventListener('submit', (event) => {
     event.preventDefault();
     displayWeatherInfoOfCity();
 });
+
+
+async function displayWeatherInfoOfCity() {
+    const cityInfo = await weatherGet.getCityMainInfo();
+    if (cityInfo == null) {
+        return;
+    }
+
+    const [cityName, cityCountry, ...coordinates] = cityInfo;
+    const [cityLatitude, cityLongitude] = coordinates;
+
+    const currentWeatherData = await weatherGet.getCurrentWeatherData(cityLatitude, cityLongitude);
+    const [temperature, apparentTemperature, humidity, windSpeed, precipitation] = currentWeatherData;
+    const currentDate = weatherGet.getCurrentDate();
+    weatherDisplay.displayLocationNames(cityName, cityCountry);
+    weatherDisplay.displayCurrentWeatherData(temperature, apparentTemperature, humidity, windSpeed, precipitation);
+    weatherDisplay.displayCurrentDate(currentDate);
+}
