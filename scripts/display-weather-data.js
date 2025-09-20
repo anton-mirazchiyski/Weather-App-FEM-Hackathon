@@ -12,8 +12,10 @@ export async function displayWeatherInfoOfCity() {
 
     const currentWeatherData = await getCurrentWeatherData(cityLatitude, cityLongitude);
     const [temperature, apparentTemperature, humidity, windSpeed, precipitation] = currentWeatherData;
+    const currentDate = getCurrentDate();
     displayLocationNames(cityName, cityCountry);
     displayCurrentWeatherData(temperature, apparentTemperature, humidity, windSpeed, precipitation);
+    displayCurrentDate(currentDate);
 }
 
 
@@ -60,6 +62,10 @@ async function getCurrentWeatherData(latitude, longitude) {
     }
 }
 
+function getCurrentDate() {
+    return Temporal.Now.plainDateISO();
+}
+
 
 function displayCurrentWeatherData(temperature, apparentTemperature, humidity, windSpeed, precipitation) {
     const currentTemperatureElement = document.querySelector('.city-name-container .current-temperature-high');
@@ -81,4 +87,14 @@ function displayLocationNames(cityName, countryName) {
     cityName !== countryName
                         ? nameElement.textContent = `${cityName}, ${countryName}`
                         : nameElement.textContent = `${countryName}`;
+}
+
+function displayCurrentDate(date) {
+    const dateElement = document.querySelector('.city-info > .city-date');
+
+    const monthsShortNames = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec']; 
+    const daysOfWeek = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'];
+
+    const currentDayOfWeek = daysOfWeek[date.dayOfWeek - 1];
+    dateElement.textContent = `${currentDayOfWeek}, ${monthsShortNames[date.month - 1]} ${date.day}, ${date.year}`;
 }
