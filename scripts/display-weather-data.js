@@ -29,3 +29,24 @@ export function displayCurrentDate(date, currentDayOfWeek) {
 
     dateElement.textContent = `${currentDayOfWeek}, ${monthsShortNames[date.month - 1]} ${date.day}, ${date.year}`;
 }
+
+
+export function displayDailyForecast(higherTempValues, lowerTempValues, currentDayOfWeek) {
+    const weekDayInfoElements = document.querySelectorAll('.daily-forecast-data .weekday-info');
+
+    const daysOfWeek = ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'];
+    const currentDayOfWeekIdx = daysOfWeek.indexOf(currentDayOfWeek.slice(0, 3));
+    const currentDaysOfWeek = daysOfWeek.slice(currentDayOfWeekIdx,).concat(daysOfWeek.slice(0, currentDayOfWeekIdx));
+    
+    for (let i = 0; i < weekDayInfoElements.length; i++) {
+        const weekDayInfoElement = weekDayInfoElements[i];
+
+        const weekDayNameElement = weekDayInfoElement.querySelector('.weekday');
+        const maxTemperatureElement = weekDayInfoElement.querySelector('.temp-high');
+        const minTemperatureElement = weekDayInfoElement.querySelector('.temp-low');
+
+        weekDayNameElement.textContent = currentDaysOfWeek[i];
+        maxTemperatureElement.textContent = `${Math.round(higherTempValues[i])}°`;
+        minTemperatureElement.textContent = `${Math.round(lowerTempValues[i])}°`;      
+    } 
+}

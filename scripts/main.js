@@ -30,4 +30,6 @@ async function displayWeatherInfoOfCity() {
 
     const dailyForecast = await weatherGet.getDailyForecast(cityLatitude, cityLongitude);
     const [higherTempValues, lowerTempValues] = dailyForecast;
+
+    weatherDisplay.displayDailyForecast(higherTempValues, lowerTempValues, currentDayOfWeek);
 }
