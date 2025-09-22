@@ -47,3 +47,30 @@ export async function getCurrentWeatherData(latitude, longitude) {
 export function getCurrentDate() {
     return Temporal.Now.plainDateISO();
 }
+
+export function getCurrentDayOfTheWeek(date) {
+    const daysOfWeek = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'];
+
+    const currentDayOfWeek = daysOfWeek[date.dayOfWeek - 1];
+    return currentDayOfWeek;
+}
+
+export async function getDailyForecast(latitude, longitude) {
+    const dailyForecastUrl = `https://api.open-meteo.com/v1/forecast?latitude=${latitude}&longitude=${longitude}&daily=temperature_2m_max,temperature_2m_min&timezone=auto`;
+
+    try {
+        const response = await fetch(dailyForecastUrl);
+        const data = await response.json();
+
+        const higherTemperatureValues = data.daily.temperature_2m_max;
+        const lowerTemperatureValues = data.daily.temperature_2m_min;
+
+        return [
+            higherTemperatureValues,
+            lowerTemperatureValues
+        ];
+        
+    } catch(error) {
+        return null;
+    }
+}

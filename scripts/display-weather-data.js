@@ -22,12 +22,10 @@ export function displayLocationNames(cityName, countryName) {
 }
 
 
-export function displayCurrentDate(date) {
+export function displayCurrentDate(date, currentDayOfWeek) {
     const dateElement = document.querySelector('.city-info > .city-date');
 
     const monthsShortNames = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec']; 
-    const daysOfWeek = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'];
 
-    const currentDayOfWeek = daysOfWeek[date.dayOfWeek - 1];
     dateElement.textContent = `${currentDayOfWeek}, ${monthsShortNames[date.month - 1]} ${date.day}, ${date.year}`;
 }
