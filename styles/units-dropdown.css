@@ -1,13 +1,3 @@
-header {
-    min-width: 100%;
-    display: flex;
-    justify-content: space-between;
-}
-
-.site-logo-container {
-    max-width: 15vw;
-}
-
 .units-dropdown {
     min-width: 12rem;
     display: flex;

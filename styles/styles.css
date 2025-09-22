@@ -1,8 +1,7 @@
 @import url(reset.css);
 @import url(general-styles.css);
-@import url(header.css);
+@import url(units-dropdown.css);
 @import url(form.css);
-@import url(weather-info-layout.css);
-@import url(city-info-container.css);
-@import url(general-weather-info.css);
+@import url(location-info.css);
+@import url(current-weather.css);
 @import url(daily-forecast.css);

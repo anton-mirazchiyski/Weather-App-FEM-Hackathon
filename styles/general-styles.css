@@ -13,6 +13,16 @@ ul {
     list-style-type: none;
 }
 
+header {
+    min-width: 100%;
+    display: flex;
+    justify-content: space-between;
+}
+
+.site-logo-container {
+    max-width: 15vw;
+}
+
 main {
     min-height: 90vh;
     min-width: 100%;
@@ -30,4 +40,23 @@ h1 {
 
 footer {
     margin-top: auto;
+}
+
+.city-weather-info {
+    display: flex;
+    min-width: 100%;
+    margin-top: 1.5rem;
+    gap: 1.5rem;
+}
+
+.first-column {
+    min-width: 50rem;
+    max-width: 50rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1.8rem;
+}
+
+.second-column {
+    min-width: 25rem;
 }
