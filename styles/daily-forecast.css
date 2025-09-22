@@ -1,0 +1,48 @@
+section.daily-forecast-info {
+    margin-top: 0.8rem;
+}
+
+section.daily-forecast-info > .section-title {
+    font-weight: 500;
+}
+
+.daily-forecast-data {
+    display: flex;
+    margin-top: 1rem;
+    margin-bottom: 4rem;
+    gap: 1rem;
+}
+
+.weekday-info {
+    border: 2px solid #30304c;
+    border-radius: 9px;
+    background-color: #25253f;
+    text-align: center;
+    padding: 0.5rem 0.7rem;
+    min-width: 6.3rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.weekday-info .weekday {
+    font-size: 1rem;
+    font-weight: 500;
+    color: #cfcfdd;
+}
+
+.weekday-info .icon-container {
+    max-width: 4rem;
+    align-self: center;
+}
+
+.weekday-info .weekday-temp {
+    display: flex;
+    justify-content: space-between;
+    font-size: 0.95rem;
+    font-weight: 500;
+}
+
+.weekday-info .temp-low {
+    color: #bebdce;
+}
