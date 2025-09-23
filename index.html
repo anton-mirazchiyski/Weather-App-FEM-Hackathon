@@ -169,15 +169,23 @@
         <section class="hourly-forecast-info">
           <div>
             <span>Hourly forecast</span>
-            <select name="week-days" id="week-day-select">
-                <option value="monday">Monday</option>
-                <option value="tuesday" selected>Tuesday</option>
-                <option value="wednesday">Wednesday</option>
-                <option value="thursday">Thursday</option>
-                <option value="friday">Friday</option>
-                <option value="saturday">Saturday</option>
-                <option value="sunday">Sunday</option>
-            </select>
+            <div class="weekday-dropdown">
+              <button class="weekday-dropdown-btn">
+                Tuesday
+                <img src="./assets/images/icon-dropdown.svg" alt="dropdown-icon">
+              </button>
+              <div class="weekday-dropdown-options">
+                <ul>
+                  <li data-value="monday">Monday</li>
+                  <li data-value="tuesday">Tuesday</li>
+                  <li data-value="wednesday">Wednesday</li>
+                  <li data-value="thursday">Thursday</li>
+                  <li data-value="friday">Friday</li>
+                  <li data-value="saturday">Saturday</li>
+                  <li data-value="sunday">Sunday</li>
+                </ul>
+              </div>
+            </div>
           </div>
           <!-- Insert hourly forecast for the selected day here -->
           <div class="hourly-forecast-data">
