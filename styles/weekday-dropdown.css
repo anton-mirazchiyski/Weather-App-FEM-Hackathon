@@ -1,0 +1,40 @@
+.weekday-dropdown {
+    cursor: pointer;
+    position: relative;
+}
+
+.weekday-dropdown-btn {
+    background-color: #3c3b5c;
+    color: #e5e5f8;
+    min-width: 8rem;
+    display: flex;
+    justify-content: center;
+    gap: 0.5rem;
+    border: none;
+    border-radius: 7px;
+    padding: 0.3rem 0.5rem;
+    cursor: pointer;
+    font-size: 1rem;
+    font-weight: 500;
+}
+
+.weekday-dropdown-options {
+    position: absolute;
+    z-index: 1;
+    border: 3px solid #30304c;
+    border-radius: 7px;
+    margin-top: 1rem;
+    min-width: 13rem;
+    background-color: #25253f;
+    color: #e5e5f8;
+    left: -4rem;
+    font-size: 1.05rem;
+    font-weight: 500;
+    padding: 0.5rem 0.7rem;
+}
+
+.weekday-dropdown-options ul {
+    display: flex;
+    flex-direction: column;
+    gap: 0.6rem;
+}

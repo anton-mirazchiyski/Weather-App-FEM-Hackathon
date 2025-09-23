@@ -39,3 +39,8 @@
     color: #ededfd;
     padding-right: 0.3rem;
 }
+
+.hourly-forecast-info > div:first-child {
+    display: flex;
+    justify-content: space-between;
+}
