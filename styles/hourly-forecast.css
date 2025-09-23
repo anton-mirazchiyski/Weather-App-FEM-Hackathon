@@ -1,0 +1,41 @@
+.hourly-forecast-info {
+    min-height: 90%;
+    border-radius: 12px;
+    padding: 1.2rem;
+    background-color: #25253f;
+}
+
+.hourly-forecast-data {
+    display: flex;
+    flex-direction: column;
+    margin-top: 1.3rem;
+    gap: 1rem;
+}
+
+.hour-info {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border: 2px solid #30304c;
+    border-radius: 9px;
+    background-color: #2f2f49;
+    padding: 0.4rem 0.5rem;
+}
+
+.hour-container {
+    max-width: 2.5rem;
+    display: flex;
+    gap: 1rem;
+}
+
+.hour {
+    min-width: 4rem;
+    align-self: center;
+}
+
+.hour-temperature {
+    font-size: 1rem;
+    font-weight: 500;
+    color: #ededfd;
+    padding-right: 0.3rem;
+}
