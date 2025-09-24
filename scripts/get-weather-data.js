@@ -22,6 +22,7 @@ export async function getCityMainInfo() {
     }
 }
 
+
 export async function getCurrentWeatherData(latitude, longitude) {
     const currentWeatherUrl = `https://api.open-meteo.com/v1/forecast?latitude=${latitude}&longitude=${longitude}&current=temperature_2m,relative_humidity_2m,apparent_temperature,precipitation,wind_speed_10m`;
 
@@ -44,9 +45,11 @@ export async function getCurrentWeatherData(latitude, longitude) {
     }
 }
 
+
 export function getCurrentDate() {
     return Temporal.Now.plainDateISO();
 }
+
 
 export function getCurrentDayOfTheWeek(date) {
     const daysOfWeek = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'];
@@ -55,8 +58,9 @@ export function getCurrentDayOfTheWeek(date) {
     return currentDayOfWeek;
 }
 
+
 export async function getDailyForecast(latitude, longitude) {
-    const dailyForecastUrl = `https://api.open-meteo.com/v1/forecast?latitude=${latitude}&longitude=${longitude}&daily=temperature_2m_max,temperature_2m_min&timezone=auto`;
+    const dailyForecastUrl = `https://api.open-meteo.com/v1/forecast?latitude=${latitude}&longitude=${longitude}&daily=temperature_2m_max,temperature_2m_min,weather_code&timezone=auto`;
 
     try {
         const response = await fetch(dailyForecastUrl);
@@ -64,10 +68,12 @@ export async function getDailyForecast(latitude, longitude) {
 
         const higherTemperatureValues = data.daily.temperature_2m_max;
         const lowerTemperatureValues = data.daily.temperature_2m_min;
+        const weatherConditionCodes = data.daily.weather_code;
 
         return [
             higherTemperatureValues,
-            lowerTemperatureValues
+            lowerTemperatureValues,
+            weatherConditionCodes
         ];
         
     } catch(error) {

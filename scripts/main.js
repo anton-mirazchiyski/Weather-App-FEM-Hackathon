@@ -1,5 +1,6 @@
 import * as weatherGet from './get-weather-data.js';
 import * as weatherDisplay from './display-weather-data.js';
+import { determineWeatherConditionIcon } from './utils.js';
 
 const searchFormElement = document.querySelector('form.search-form');
 
@@ -29,7 +30,8 @@ async function displayWeatherInfoOfCity() {
     weatherDisplay.displayCurrentDate(currentDate, currentDayOfWeek);
 
     const dailyForecast = await weatherGet.getDailyForecast(cityLatitude, cityLongitude);
-    const [higherTempValues, lowerTempValues] = dailyForecast;
-
-    weatherDisplay.displayDailyForecast(higherTempValues, lowerTempValues, currentDayOfWeek);
+    const [higherTempValues, lowerTempValues, dailyConditionCodes] = dailyForecast;
+    const dailyWeatherConditionIcons = determineWeatherConditionIcon(...dailyConditionCodes);
+    
+    weatherDisplay.displayDailyForecast(higherTempValues, lowerTempValues, currentDayOfWeek, dailyWeatherConditionIcons);
 }

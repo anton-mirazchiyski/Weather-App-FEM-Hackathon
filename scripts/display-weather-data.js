@@ -31,7 +31,7 @@ export function displayCurrentDate(date, currentDayOfWeek) {
 }
 
 
-export function displayDailyForecast(higherTempValues, lowerTempValues, currentDayOfWeek) {
+export function displayDailyForecast(higherTempValues, lowerTempValues, currentDayOfWeek, dailyWeatherConditionIcons) {
     const weekDayInfoElements = document.querySelectorAll('.daily-forecast-data .weekday-info');
 
     const daysOfWeek = ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'];
@@ -44,9 +44,11 @@ export function displayDailyForecast(higherTempValues, lowerTempValues, currentD
         const weekDayNameElement = weekDayInfoElement.querySelector('.weekday');
         const maxTemperatureElement = weekDayInfoElement.querySelector('.temp-high');
         const minTemperatureElement = weekDayInfoElement.querySelector('.temp-low');
+        const imageIconElement = weekDayInfoElement.querySelector('.icon-container > img');
 
         weekDayNameElement.textContent = currentDaysOfWeek[i];
         maxTemperatureElement.textContent = `${Math.round(higherTempValues[i])}°`;
-        minTemperatureElement.textContent = `${Math.round(lowerTempValues[i])}°`;      
+        minTemperatureElement.textContent = `${Math.round(lowerTempValues[i])}°`;
+        imageIconElement.src = dailyWeatherConditionIcons[i];    
     } 
 }
