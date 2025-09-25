@@ -24,7 +24,16 @@ export async function getCityMainInfo() {
 
 
 export async function getCurrentWeatherData(latitude, longitude) {
-    const currentWeatherUrl = `https://api.open-meteo.com/v1/forecast?latitude=${latitude}&longitude=${longitude}&current=temperature_2m,relative_humidity_2m,apparent_temperature,precipitation,wind_speed_10m,weather_code`;
+    const urlParams = [
+        'temperature_2m',
+        'relative_humidity_2m',
+        'apparent_temperature',
+        'precipitation',
+        'wind_speed_10m',
+        'weather_code'
+    ];
+
+    const currentWeatherUrl = `https://api.open-meteo.com/v1/forecast?latitude=${latitude}&longitude=${longitude}&current=${urlParams.join(',')}`;
 
     try {
         const response = await fetch(currentWeatherUrl);
@@ -32,14 +41,7 @@ export async function getCurrentWeatherData(latitude, longitude) {
 
         const weatherInfo = data.current;
         
-        return [
-            weatherInfo.temperature_2m,
-            weatherInfo.apparent_temperature,
-            weatherInfo.relative_humidity_2m,
-            weatherInfo.wind_speed_10m,
-            weatherInfo.precipitation,
-            weatherInfo.weather_code,
-        ];
+        return urlParams.map(param => weatherInfo[param]);
         
     } catch(error) {
         return null;
@@ -61,22 +63,22 @@ export function getCurrentDayOfTheWeek(date) {
 
 
 export async function getDailyForecast(latitude, longitude) {
-    const dailyForecastUrl = `https://api.open-meteo.com/v1/forecast?latitude=${latitude}&longitude=${longitude}&daily=temperature_2m_max,temperature_2m_min,weather_code&timezone=auto`;
+    const urlParams = [
+        'temperature_2m_max',
+        'temperature_2m_min',
+        'weather_code'
+    ];
+
+    const dailyForecastUrl = `https://api.open-meteo.com/v1/forecast?latitude=${latitude}&longitude=${longitude}&daily=${urlParams.join(',')}&timezone=auto`;
 
     try {
         const response = await fetch(dailyForecastUrl);
         const data = await response.json();
 
-        const higherTemperatureValues = data.daily.temperature_2m_max;
-        const lowerTemperatureValues = data.daily.temperature_2m_min;
-        const weatherConditionCodes = data.daily.weather_code;
+        const dailyWeatherInfo = data.daily;
 
-        return [
-            higherTemperatureValues,
-            lowerTemperatureValues,
-            weatherConditionCodes
-        ];
-        
+        return urlParams.map(param => dailyWeatherInfo[param]);
+
     } catch(error) {
         return null;
     }
