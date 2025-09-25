@@ -26,10 +26,10 @@ export async function getCityMainInfo() {
 export async function getCurrentWeatherData(latitude, longitude) {
     const urlParams = [
         'temperature_2m',
-        'relative_humidity_2m',
         'apparent_temperature',
-        'precipitation',
+        'relative_humidity_2m',
         'wind_speed_10m',
+        'precipitation',
         'weather_code'
     ];
 
