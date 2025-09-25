@@ -21,12 +21,13 @@ async function displayWeatherInfoOfCity() {
     const [cityLatitude, cityLongitude] = coordinates;
 
     const currentWeatherData = await weatherGet.getCurrentWeatherData(cityLatitude, cityLongitude);
-    const [temperature, apparentTemperature, humidity, windSpeed, precipitation] = currentWeatherData;
+    const [temperature, apparentTemperature, humidity, windSpeed, precipitation, currentConditionCode] = currentWeatherData;
     const currentDate = weatherGet.getCurrentDate();
     const currentDayOfWeek = weatherGet.getCurrentDayOfTheWeek(currentDate);
+    const currentWeatherConditionIcon = determineWeatherConditionIcon(currentConditionCode);
 
     weatherDisplay.displayLocationNames(cityName, cityCountry);
-    weatherDisplay.displayCurrentWeatherData(temperature, apparentTemperature, humidity, windSpeed, precipitation);
+    weatherDisplay.displayCurrentWeatherData(temperature, apparentTemperature, humidity, windSpeed, precipitation, currentWeatherConditionIcon[0]);
     weatherDisplay.displayCurrentDate(currentDate, currentDayOfWeek);
 
     const dailyForecast = await weatherGet.getDailyForecast(cityLatitude, cityLongitude);

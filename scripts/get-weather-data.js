@@ -24,7 +24,7 @@ export async function getCityMainInfo() {
 
 
 export async function getCurrentWeatherData(latitude, longitude) {
-    const currentWeatherUrl = `https://api.open-meteo.com/v1/forecast?latitude=${latitude}&longitude=${longitude}&current=temperature_2m,relative_humidity_2m,apparent_temperature,precipitation,wind_speed_10m`;
+    const currentWeatherUrl = `https://api.open-meteo.com/v1/forecast?latitude=${latitude}&longitude=${longitude}&current=temperature_2m,relative_humidity_2m,apparent_temperature,precipitation,wind_speed_10m,weather_code`;
 
     try {
         const response = await fetch(currentWeatherUrl);
@@ -38,6 +38,7 @@ export async function getCurrentWeatherData(latitude, longitude) {
             weatherInfo.relative_humidity_2m,
             weatherInfo.wind_speed_10m,
             weatherInfo.precipitation,
+            weatherInfo.weather_code,
         ];
         
     } catch(error) {
