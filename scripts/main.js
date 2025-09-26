@@ -3,6 +3,10 @@ import * as weatherDisplay from './display-weather-data.js';
 import { determineWeatherConditionIcon } from './utils.js';
 
 const searchFormElement = document.querySelector('form.search-form');
+const weekDaysDropdownBtnElement = document.querySelector('.weekday-dropdown-btn');
+const weekDaysDropdownElement = document.querySelector('.weekday-dropdown-options');
+const unitsDropdownBtnElement = document.querySelector('.units-dropdown-btn');
+const unitsDropdownElement = document.querySelector('.dropdown-options');
 
 
 searchFormElement.addEventListener('submit', (event) => {
@@ -35,4 +39,28 @@ async function displayWeatherInfoOfCity() {
     const dailyWeatherConditionIcons = determineWeatherConditionIcon(...dailyConditionCodes);
     
     weatherDisplay.displayDailyForecast(higherTempValues, lowerTempValues, currentDayOfWeek, dailyWeatherConditionIcons);
+}
+
+
+weekDaysDropdownBtnElement.addEventListener('click', () => {
+    toggleDropdownVisibility(weekDaysDropdownElement);
+});
+
+
+unitsDropdownBtnElement.addEventListener('click', () => {
+    toggleDropdownVisibility(unitsDropdownElement);
+});
+
+
+function toggleDropdownVisibility(dropdownElement) {
+    const elementVisibility = window.getComputedStyle(dropdownElement).visibility;
+
+    if (elementVisibility === 'hidden') {
+        dropdownElement.style.visibility = 'visible';
+        return;
+    }
+
+    if (elementVisibility === 'visible') {
+        dropdownElement.style.visibility = 'hidden';
+    }
 }
