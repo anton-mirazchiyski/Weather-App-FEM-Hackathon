@@ -40,10 +40,12 @@ h1 {
 
 footer {
     margin-top: auto;
+    padding: 1rem;
 }
 
 .city-weather-info {
     display: flex;
+    justify-content: center;
     min-width: 100%;
     margin-top: 1.5rem;
     gap: 2vw;
@@ -59,4 +61,18 @@ footer {
 
 .second-column {
     min-width: 25rem;
+}
+
+.attribution { 
+    display: flex;
+    gap: 1.2rem;
+    font-size: 0.8rem;
+}
+
+.attribution p {
+    font-weight: 500;;
+}
+
+.attribution a {
+    color: rgb(179, 179, 85); 
 }
