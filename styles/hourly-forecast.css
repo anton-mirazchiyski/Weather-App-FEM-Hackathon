@@ -1,15 +1,24 @@
 .hourly-forecast-info {
-    min-height: 90%;
+    min-height: 100%;
     border-radius: 12px;
     padding: 1.2rem;
     background-color: #25253f;
 }
 
+section.hourly-forecast-info .section-title {
+    font-weight: 500;
+}
+
 .hourly-forecast-data {
     display: flex;
     flex-direction: column;
+    max-height: 35rem;
     margin-top: 1.3rem;
     gap: 1rem;
+    overflow: auto;
+    scrollbar-width: thin;
+    scrollbar-color: #2f2f49 #2f2f49;
+    padding-right: 1.2rem;
 }
 
 .hour-info {
@@ -19,7 +28,7 @@
     border: 2px solid #30304c;
     border-radius: 9px;
     background-color: #2f2f49;
-    padding: 0.4rem 0.5rem;
+    padding: 0.5rem 0.6rem;
 }
 
 .hour-container {

@@ -9,7 +9,6 @@ section.daily-forecast-info > .section-title {
 .daily-forecast-data {
     display: flex;
     margin-top: 1rem;
-    margin-bottom: 4rem;
     gap: 1rem;
 }
 
